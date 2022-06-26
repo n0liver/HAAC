@@ -1,6 +1,6 @@
 {
-    "domain": "aps_api_client_v2",
-    "name": "APS API Client v2",
+    "domain": "aps_api_client",
+    "name": "Apsystems API Client",
     "version": "0.0.1",
     "config_flow": true,
     "requirements": [],
@@ -9,7 +9,7 @@
     "homekit": {},
     "dependencies": [],
     "codeowners": [
-      "@revilon"
+      "@n0liver"
     ],
     "iot_class": "cloud_polling"
   }

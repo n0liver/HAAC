@@ -1,0 +1,15 @@
+{
+    "domain": "aps_api_client_v2",
+    "name": "APS API Client v2",
+    "version": "0.0.1",
+    "config_flow": true,
+    "requirements": [],
+    "ssdp": [],
+    "zeroconf": [],
+    "homekit": {},
+    "dependencies": [],
+    "codeowners": [
+      "@revilon"
+    ],
+    "iot_class": "cloud_polling"
+  }

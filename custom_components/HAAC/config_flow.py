@@ -16,17 +16,6 @@ LOGIN_SCHEMA = vol.Schema({
     vol.Required(CONF_USERNAME): cv.string,
     vol.Required(CONF_PASSWORD): cv.string,
 })
-# AUTH_SCHEMA = vol.Schema(
-#     {vol.Required(CONF_ACCESS_TOKEN): cv.string, vol.Optional(CONF_URL): cv.string}
-# )
-# REPO_SCHEMA = vol.Schema(
-#     {
-#         vol.Required(CONF_PATH): cv.string,
-#         vol.Optional(CONF_NAME): cv.string,
-#         vol.Optional("add_another"): cv.boolean,
-#     }
-# )
-
 
 def validate_path(path: str) -> None:
     """Validates a GitHub repo path.
@@ -72,33 +61,3 @@ class ApsApiClientConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         return self.async_show_form(
             step_id="user", data_schema=LOGIN_SCHEMA, errors=errors
         )
-
-    # async def async_step_repo(self, user_input: Optional[Dict[str, Any]] = None):
-    #     """Second step in config flow to add a repo to watch."""
-    #     errors: Dict[str, str] = {}
-    #     if user_input is not None:
-    #         # Validate the path.
-    #         try:
-    #             validate_path(user_input[CONF_PATH])
-    #         except ValueError:
-    #             errors["base"] = "invalid_path"
-
-    #         if not errors:
-    #             # Input is valid, set data.
-    #             self.data[CONF_REPOS].append(
-    #                 {
-    #                     "path": user_input[CONF_PATH],
-    #                     "name": user_input.get(CONF_NAME, user_input[CONF_PATH]),
-    #                 }
-    #             )
-    #             # If user ticked the box show this form again so they can add an
-    #             # additional repo.
-    #             if user_input.get("add_another", False):
-    #                 return await self.async_step_repo()
-
-    #             # User is done adding repos, create the config entry.
-    #             return self.async_create_entry(title="GitHub Custom", data=self.data)
-
-    #     return self.async_show_form(
-    #         step_id="repo", data_schema=REPO_SCHEMA, errors=errors
-    #     )

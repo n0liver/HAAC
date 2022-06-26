@@ -96,16 +96,16 @@ class ApsApi:
 
     #   "data": {
     #      "1234567890abcdef": {
-    #         "capacity": "4310", # watts
-    #         "co2": "1598.082739", # lifetime co2 reduction
-    #         "duration": "177", # ???
-    #         "month": "135.746895", # month's generated kwh
-    #         "power": "501.000000", # current power production in watts
-    #         "today": "4.369843", # today's generated kwh
-    #         "total": "2173.392525", total generated kwh
-    #         "tree": "79.904137", # 1 tree = 20 kg co2 / year
+    #         "capacity": "1234", # watts
+    #         "co2": "1234.123", # lifetime co2 reduction
+    #         "duration": "123", # ???
+    #         "month": "123.456", # month's generated kwh
+    #         "power": "1234.5678", # current power production in watts
+    #         "today": "12.3456, # today's generated kwh
+    #         "total": "1234.5678", total generated kwh
+    #         "tree": "123.456", # 1 tree = 20 kg co2 / year
     #         "type": 0, # ???
-    #         "year": "2127.706255" # year's generated kwh
+    #         "year": "1234.1234" # year's generated kwh
     #      }
     #   },
 
@@ -130,19 +130,19 @@ class ApsApi:
         _LOGGER.debug(result)
         return result.get("data", "no data")
         # "data":{
-        #     "duration":208, # ???
-        #     "total":"25.592921", # kwh
-        #     "max":"3745.0", # watts
+        #     "duration":123, # ???
+        #     "total":"12.3456", # kwh
+        #     "max":"1234.5", # watts
         #     ...
         #     ],
-        #     "co2":"18.818324", # kgs
-        #     "time":[ # string[]
+        #     "co2":"12.3456", # kgs
+        #     "time":[ # timestamp-string[]
         #     ...
         #     ],
-        #     "power":[ # watts[]
+        #     "power":[ # watts-string[]
         #     ...
         #     ],
-        #     "energy":[ # kwh[] (from the last 5 minutes(?))
+        #     "energy":[ # kwh-string[] (from the last 5 minutes?)
         #     ...
         #     ]
         # },

@@ -16,7 +16,6 @@ from homeassistant.components.sensor import (
     SensorStateClass,
     SensorEntity,
 )
-from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.entity import EntityCategory
@@ -213,17 +212,28 @@ class ApsApiClientSensor(CoordinatorEntity, SensorEntity):
         return self._state_class
 
     @property
-    def device_info(self) -> DeviceInfo:
-        """Return the device info."""
-        return DeviceInfo(
-            identifiers={
-                # Serial numbers are unique identifiers within a specific domain
-                (self.unique_id)
-            },
-            name=self.name,
-            manufacturer='APS',
-        )
+    def device_info(self):
+        return "APS API client"
 
     @property
     def entity_category(self):
         return self._entity_category
+
+
+# configuration.yaml setup style
+# async def async_setup_platform(
+#     hass: HomeAssistantType,
+#     config: ConfigType,
+#     async_add_entities: Callable,
+#     discovery_info: Optional[DiscoveryInfoType] = None,
+# ) -> None:
+#     """Set up the sensor platform. via configuration.yaml"""
+#     session: aiohttp.ClientSession  = async_get_clientsession(hass)
+#     username = config['username']
+#     password = config['password']
+#     api = ApsApi(session, username, password)
+#     await api.login()
+#     sensors = [
+#         ApsApiClientSensor(session, username, password)
+#     ]
+#     async_add_entities(sensors, update_before_add=True)

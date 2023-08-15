@@ -1,7 +1,7 @@
 {
     "domain": "aps_api_client",
     "name": "Apsystems API Client",
-    "version": "0.0.1",
+    "version": "0.0.1.b0",
     "config_flow": true,
     "requirements": [],
     "ssdp": [],

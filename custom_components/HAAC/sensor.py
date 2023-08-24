@@ -213,27 +213,11 @@ class ApsApiClientSensor(CoordinatorEntity, SensorEntity):
 
     @property
     def device_info(self):
-        return "APS API client"
+        return {
+            "identifiers": {(DOMAIN, self.unique_id)},
+            "name": "APS API client",
+        }
 
     @property
     def entity_category(self):
         return self._entity_category
-
-
-# configuration.yaml setup style
-# async def async_setup_platform(
-#     hass: HomeAssistantType,
-#     config: ConfigType,
-#     async_add_entities: Callable,
-#     discovery_info: Optional[DiscoveryInfoType] = None,
-# ) -> None:
-#     """Set up the sensor platform. via configuration.yaml"""
-#     session: aiohttp.ClientSession  = async_get_clientsession(hass)
-#     username = config['username']
-#     password = config['password']
-#     api = ApsApi(session, username, password)
-#     await api.login()
-#     sensors = [
-#         ApsApiClientSensor(session, username, password)
-#     ]
-#     async_add_entities(sensors, update_before_add=True)

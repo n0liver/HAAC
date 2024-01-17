@@ -88,7 +88,7 @@ async def async_setup_entry(
                 dev_class=SensorDeviceClass.POWER,
                 icon="mdi:solar-power-variant",
                 unit=POWER_WATT,
-                entity_category=EntityCategory.CONFIG,
+                entity_category=EntityCategory.DIAGNOSTIC,
                 state_class=SensorStateClass.MEASUREMENT,
             ),
             ApsApiClientSensor(

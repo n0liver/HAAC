@@ -77,6 +77,8 @@ class ApsApi:
 
     async def get_summary(self):
         """fetches summarized statistics"""
+
+        # try:
         request_body = {
             "access_token": self.accessToken,
             "openId": self.openId,
@@ -93,6 +95,8 @@ class ApsApi:
         if result.get("data", False) is False:
             return "no data"
         return list(result["data"].values())[0]
+        # except Exception as err:
+        #     return "no data"
 
     #   "data": {
     #      "1234567890abcdef": {

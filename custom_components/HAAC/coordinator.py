@@ -80,6 +80,6 @@ class ApsApiClientCoordinator(DataUpdateCoordinator):
             # and start a config flow with SOURCE_REAUTH (async_step_reauth)
             raise ConfigEntryAuthFailed from err
         except Exception as err:
-            _LOGGER.warn("an exception occured during data update. Error was:")
-            _LOGGER.warn(err)
-            raise UpdateFailed("Error communicating with APS API.")
+            _LOGGER.warn(
+                "an exception occured during data update. Error was:", err)
+            # raise UpdateFailed("Error communicating with APS API.")
